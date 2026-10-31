@@ -604,6 +604,13 @@ testers are expected to do more *exploratory* testing.
    1. Double-click the JAR file.<br>
       Expected: The GUI opens with a set of sample contacts. The window size may not be optimal.
 
+1. Closing CampusContacts and subsequent launches
+
+   1. Close the window.
+      
+   1. Double-click the JAR file in the same folder.
+      Expected: The GUI opens with all previous contacts saved automatically.
+   
 1. Saving window preferences
 
    1. Resize the window to an optimal size. Move the window to a different location. Close the window.
@@ -678,13 +685,18 @@ Use a disposable data folder. Add two contacts named John Tan with different pho
    1. Test case: `delete John Tan_2`<br>
       Expected: The contact displayed as John Tan_2 is deleted, while the unsuffixed John Tan remains.
 
-   1. Test case: `delete John Tan_0`<br>
+   1. Test case: `delete Jane Lim`<br>
       Expected: No person is deleted. The status message shows error details.
 
    1. Other incorrect delete commands to try: `delete`, `delete John Tan_`, `delete John Tan_0`<br>
       Expected: Similar to previous.
 
-1. _{ more test cases … }_
+2. Deleting a person while a different search result is displayed
+   
+   1. Prerequisites: Add contacts named John Tan and Jane Lim.
+     
+   1. Test case: Run `find Jane`, followed by `delete John Tan`.
+      Expected: John Tan is deleted even though the displayed list only contains Jane Lim.
 
 ### Saving data
 
